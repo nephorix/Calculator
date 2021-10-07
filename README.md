@@ -9,7 +9,7 @@ Eg. - 5 / - 5  = 1 (Division by negative) and 5 ( - 10 ) = -50 (Assuming multipl
 
 How to use: 
 
-1) Navigate to Calculator/Calculator/bin/Release/netcoreapp3.1/publish folder and run terminal command dotnet Calculator.dll (.NET Core 3.1 must be installed beforehand as that is the target framework I selected when creating the console project).
+1) Navigate to Calculator/bin/Release/netcoreapp3.1/publish folder and run terminal command dotnet Calculator.dll (.NET Core 3.1 must be installed beforehand as that is the target framework I selected when creating the console project).
 
 2) You will prompted to enter the parameters you want to compute after the message “Please enter parameters you want to calculate: ”. Please ensure spacing and proper parameter sequence is followed or else the program will display a message “Incorrect sequence of operators and operands detected!”. 
 
