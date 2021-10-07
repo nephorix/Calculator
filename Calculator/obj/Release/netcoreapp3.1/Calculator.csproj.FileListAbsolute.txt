@@ -1,0 +1,13 @@
+/Users/nephorix/Projects/Calculator/Calculator/bin/Release/netcoreapp3.1/Calculator.deps.json
+/Users/nephorix/Projects/Calculator/Calculator/bin/Release/netcoreapp3.1/Calculator.runtimeconfig.json
+/Users/nephorix/Projects/Calculator/Calculator/bin/Release/netcoreapp3.1/Calculator.runtimeconfig.dev.json
+/Users/nephorix/Projects/Calculator/Calculator/bin/Release/netcoreapp3.1/Calculator.dll
+/Users/nephorix/Projects/Calculator/Calculator/bin/Release/netcoreapp3.1/Calculator.pdb
+/Users/nephorix/Projects/Calculator/Calculator/obj/Release/netcoreapp3.1/Calculator.GeneratedMSBuildEditorConfig.editorconfig
+/Users/nephorix/Projects/Calculator/Calculator/obj/Release/netcoreapp3.1/Calculator.AssemblyInfoInputs.cache
+/Users/nephorix/Projects/Calculator/Calculator/obj/Release/netcoreapp3.1/Calculator.AssemblyInfo.cs
+/Users/nephorix/Projects/Calculator/Calculator/obj/Release/netcoreapp3.1/Calculator.csproj.CoreCompileInputs.cache
+/Users/nephorix/Projects/Calculator/Calculator/obj/Release/netcoreapp3.1/Calculator.dll
+/Users/nephorix/Projects/Calculator/Calculator/obj/Release/netcoreapp3.1/Calculator.pdb
+/Users/nephorix/Projects/Calculator/Calculator/obj/Release/netcoreapp3.1/Calculator.genruntimeconfig.cache
+/Users/nephorix/Projects/Calculator/Calculator/obj/Release/netcoreapp3.1/Calculator.csproj.AssemblyReference.cache

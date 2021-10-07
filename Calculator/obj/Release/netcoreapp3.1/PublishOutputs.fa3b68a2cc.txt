@@ -1,0 +1,4 @@
+/Users/nephorix/Projects/Calculator/Calculator/bin/Release/netcoreapp3.1/publish/Calculator.dll
+/Users/nephorix/Projects/Calculator/Calculator/bin/Release/netcoreapp3.1/publish/Calculator.deps.json
+/Users/nephorix/Projects/Calculator/Calculator/bin/Release/netcoreapp3.1/publish/Calculator.runtimeconfig.json
+/Users/nephorix/Projects/Calculator/Calculator/bin/Release/netcoreapp3.1/publish/Calculator.pdb
