@@ -13,7 +13,7 @@ How to use:
 
 2) You will prompted to enter the parameters you want to compute after the message “Please enter parameters you want to calculate: ”. Please ensure spacing and proper parameter sequence is followed or else the program will display a message “Incorrect sequence of operators and operands detected!”. 
 
-3) Scenarios / limitation that would break the sequence include placing more than two ‘-‘ operator simultaneously or placing more than one ‘+’ , ‘/‘ or ‘*’ simultaneously.
+3) Scenarios / limitation that would break the sequence include placing more than two ‘-‘ operator simultaneously or placing more than one ‘+’ , ‘/‘ or ‘*’ simultaneously. Number of bracket openings and closings should also match to prevent undefined results.
 
 Eg: 
 1) “1 - - - 3” won’t work. Use “1 - - ( - 3 )” instead.
