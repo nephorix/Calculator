@@ -187,26 +187,8 @@ namespace Calculator
                     }
                     else  // /, *, + and - operations
                     {
-                        // Negative result
-                        if (res < 0)
-                        {
-                            // Last result, just store as negative result string
-                            //if (pos - 1 == 0)
-                            //{
-                                list[pos - 1] = res.ToString();
-                                list.RemoveRange(pos, 2);
-                            //}
-                            //else // Add '+' operator and save result as negative string
-                            //{
-                            //    list[pos - 1] = res.ToString();
-                            //    list.RemoveRange(pos, 2);
-                            //}
-                        }
-                        else  // Positive Result
-                        {
-                            list[pos - 1] = res.ToString();
-                            list.RemoveRange(pos, 2);
-                        }
+                        list[pos - 1] = res.ToString();
+                        list.RemoveRange(pos, 2);
                     }
                 }
             }
