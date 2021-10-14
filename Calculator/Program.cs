@@ -27,73 +27,13 @@ namespace Calculator
         }
 
         // Answer Method
-        public static double Calculate(string sum)
-        { 
+        private static double Calculate(string sum)
+        {
             // To keep track of bracket opening and closing
             Stack<string> stack = new Stack<string>();
 
             // Split String to List
             List<string> list = sum.Split(' ').ToList();
-
-            double num;
-            // To inject '*' operator for a scenario where Eg. 4 ( 10 ) = 4 * ( 10 )
-            for (int i = 0; i < list.Count; i++)
-            {
-                // Inject operator after closing bracket
-                if (i + 1 < list.Count && list[i].Equals(")"))
-                {
-                    if (Double.TryParse(list[i + 1], out num))
-                        list.Insert(i + 1, "*");
-                }
-
-                // Inject operator before closing bracket
-                if (i - 1 >= 0 && list[i].Equals("("))
-                {
-                    if (Double.TryParse(list[i - 1], out num))
-                        list.Insert(i, "*");
-                }
-            }
-
-            // Convert all '-' + '-' to '+' or if single '-' and next value is an operand then append it together
-            int negCount = 0;
-            for (int i = 0; i < list.Count; i++)
-            {
-                if (list[i].Equals("-"))
-                {
-                    ++negCount;
-
-                    // Double '-' operator detected
-                    if (negCount == 2)
-                    {
-                        list[i - 1] = "+";
-                        list.RemoveAt(i);
-                        --i;
-                        negCount = 0;
-                    }
-                }
-                else
-                {
-                    if (negCount == 1)
-                    {
-                        if (Double.TryParse(list[i], out num))
-                        {
-                            // If was '/' or '*' operator before '-' then no need insert '+' operator after saving operand as negative
-                            if (i - 2 < 0 || (list[i - 2].Equals("/") || list[i - 2].Equals("*") || list[i - 2].Equals("(")))
-                            {
-                                list[i] = Convert.ToString(num * -1);
-                                list.RemoveAt(i - 1);
-                                --i;
-                            }
-                            else  // Eg. 1 - 4 = 1 + -4
-                            {
-                                list[i - 1] = "+";
-                                list[i] = Convert.ToString(num * -1);
-                            }
-                        }
-                    }
-                    negCount = 0;
-                }
-            }
 
             // HashSet of Operators 
             HashSet<string> set = new HashSet<string>();
@@ -112,8 +52,70 @@ namespace Calculator
                 if (!list.Contains(op))
                     continue;
 
+
+                double num;
+                // To inject '*' operator for a scenario where Eg. 4 ( 10 ) = 4 * ( 10 )
+                for (int i = 0; i < list.Count; i++)
+                {
+                    // Inject operator after closing bracket
+                    if (i + 1 < list.Count && list[i].Equals(")"))
+                    {
+                        if (Double.TryParse(list[i + 1], out num))
+                            list.Insert(i + 1, "*");
+                    }
+
+                    // Inject operator before closing bracket
+                    if (i - 1 >= 0 && list[i].Equals("("))
+                    {
+                        if (Double.TryParse(list[i - 1], out num))
+                            list.Insert(i, "*");
+                    }
+                }
+
+                // Convert all '-' + '-' to '+' or if single '-' and next value is an operand then append it together
+                int negCount = 0;
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].Equals("-"))
+                    {
+                        ++negCount;
+
+                        // Double '-' operator detected
+                        if (negCount == 2)
+                        {
+                            list[i - 1] = "+";
+                            list.RemoveAt(i);
+                            --i;
+                            negCount = 0;
+                        }
+                    }
+                    else
+                    {
+                        if (negCount == 1)
+                        {
+                            if (Double.TryParse(list[i], out num))
+                            {
+                                // If was '/' or '*' operator before '-' then no need insert '+' operator after saving operand as negative
+                                if (i - 2 < 0 || (list[i - 2].Equals("/") || list[i - 2].Equals("*") || list[i - 2].Equals("(")))
+                                {
+                                    list[i] = Convert.ToString(num * -1);
+                                    list.RemoveAt(i - 1);
+                                    --i;
+                                }
+                                else  // Eg. 1 - 4 = 1 + -4
+                                {
+                                    list[i - 1] = "+";
+                                    list[i] = Convert.ToString(num * -1);
+                                }
+                            }
+                        }
+                        negCount = 0;
+                    }
+                }
+
+
                 // Keep looping if the current operator remains
-                while(list.Contains(op))
+                while (list.Contains(op))
                 {
                     // Current position of operator
                     int pos = list.IndexOf(op);
@@ -136,7 +138,7 @@ namespace Calculator
                             // Push current opening bracket to stack
                             stack.Push(list[pos]);
                             StringBuilder sb = new StringBuilder();
-
+                            
                             // Loop through to find corresponding closing bracket
                             for (int j = pos + 1; j < list.Count; j++)
                             {
@@ -157,6 +159,7 @@ namespace Calculator
                                         // Use recursion to solve brackets / nested brackets
                                         res = Calculate(sb.ToString());
                                         bracket = true;
+                                        break;
                                     }
                                 }
 
@@ -180,7 +183,7 @@ namespace Calculator
 
                     // Manipulate list and replace involved operators and operands to computed value
                     if (bracket)
-                    {
+                    {          
                         // If current opeator was bracket means replace whole bracket range with computed result
                         list[pos] = res.ToString();
                         list.RemoveRange(pos + 1, pos2 - pos);
@@ -194,6 +197,7 @@ namespace Calculator
             }
 
             return Convert.ToDouble(list[0]);
+
         }
     }
 }
